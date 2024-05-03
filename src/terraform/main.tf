@@ -7,7 +7,6 @@ terraform {
   }
 
  backend "azurerm" {
-  config = {
     resource_group_name  = "Terraform_Demo"
     storage_account_name = "terraform2575"
     container_name       = "tfstatefile"
@@ -20,7 +19,6 @@ terraform {
   }
 }
 
-  }
 
 
 # Configure the Microsoft Azure Provider
