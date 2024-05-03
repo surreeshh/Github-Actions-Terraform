@@ -12,7 +12,7 @@ terraform {
     container_name       = "tfstatefile"
     key                  = "Demo.terraform.tfstate"
     use_oidc             = true
-    access_key           = "ARM_ACCESS_KEY"
+    access_key           = ARM_ACCESS_KEY
     subscription_id      = "ARM_SUBSCRIPTION_ID"
     tenant_id            = "ARM_TENANT_ID"
     client_id            = "ARM_CLIENT_ID"
