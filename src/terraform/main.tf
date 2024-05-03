@@ -7,16 +7,10 @@ terraform {
   }
 
  backend "azurerm" {
+  config = {
     resource_group_name  = "Terraform_Demo"
     storage_account_name = "terraform2575"
     container_name       = "tfstatefile"
-    key                  = "Demo.terraform.tfstate"
-   data "terraform_remote_state" "foo" {
-  backend = "azurerm"
-  config = {
-    resource_group_name  = "StorageAccount-ResourceGroup"
-    storage_account_name = "terraform123abc"
-    container_name       = "tfstate"
     key                  = "prod.terraform.tfstate"
     use_oidc             = true 
     client_id            = "ARM_CLIENT_ID"
