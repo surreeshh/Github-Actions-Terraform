@@ -22,10 +22,9 @@ provider "azurerm" {
   # client_secret   = var.client_secret
   # tenant_id       = var.tenant_id
 }
-resource "azurerm_resource_group" "rg" {  
-  name     = "my-first-terraform-rg"  
-  location = "northeurope"  
-  
+ resource   "azurerm_resource_group"   "rg"   { 
+   name   =   "my-first-terraform-rg" 
+   location   =   "northeurope" 
  } 
 
  resource   "azurerm_virtual_network"   "myvnet"   { 
@@ -35,11 +34,10 @@ resource "azurerm_resource_group" "rg" {
    resource_group_name   =   azurerm_resource_group.rg.name 
  } 
 
- resource   "azurerm_subnet"   "frontendsubnet"   { 
+ resource   "azurerm_subnet"   "frontendsubnet"    { 
    name   =   "frontendSubnet" 
    resource_group_name   =    azurerm_resource_group.rg.name 
    virtual_network_name   =   azurerm_virtual_network.myvnet.name 
-   address_prefix   =   "10.0.1.0/24" 
  } 
 
  resource   "azurerm_public_ip"   "myvm1publicip"   { 
@@ -58,8 +56,8 @@ resource "azurerm_resource_group" "rg" {
    ip_configuration   { 
      name   =   "ipconfig1" 
      subnet_id   =   azurerm_subnet.frontendsubnet.id 
-     private_ip_address_allocation   =   "Dynamic"
-     public_ip_address_id   =   azurerm_public_ip.myvm1publicip.id
+     private_ip_address_allocation   =   "Dynamic" 
+     public_ip_address_id   =   azurerm_public_ip.myvm1publicip.id 
    } 
  } 
 
@@ -67,7 +65,7 @@ resource "azurerm_resource_group" "rg" {
    name                    =   "myvm1"   
    location                =   "northeurope" 
    resource_group_name     =   azurerm_resource_group.rg.name 
-   network_interface_ids   =   [ azurerm_network_interface.myvm1nic.id] 
+   network_interface_ids   =   [ azurerm_network_interface.myvm1nic.id ] 
    size                    =   "Standard_B1s" 
    admin_username          =   "adminuser" 
    admin_password          =   "Password123!" 
