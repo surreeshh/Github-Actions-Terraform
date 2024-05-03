@@ -1,5 +1,5 @@
 
-name: 'Terraform to apply VMs'
+name: 'Terraform to apply VM'
 
 on:
   push:
@@ -14,8 +14,9 @@ env:
   ARM_CLIENT_SECRET: ${{secrets.AZURE_AD_CLIENT_SECRET}}
   ARM_SUBSCRIPTION_ID: ${{secrets.AZURE_SUBSCRIPTION_ID}}
   ARM_TENANT_ID: ${{secrets.AZURE_TENANT_ID}}
+  ARM_ACCESS_KEY: ${{secrets.AZURE_ACCESS_KEY_ID}}
   ROOT_PATH: '${{ github.workspace }}/src/terraform'
-  
+
 jobs:
   Terraform_Plan:
     name: 'Terraform plan'
