@@ -11,7 +11,21 @@ terraform {
     storage_account_name = "terraform2575"
     container_name       = "tfstatefile"
     key                  = "Demo.terraform.tfstate"
-    access_key           = "ARM_ACCESS_KEY_ID"
+   data "terraform_remote_state" "foo" {
+  backend = "azurerm"
+  config = {
+    resource_group_name  = "StorageAccount-ResourceGroup"
+    storage_account_name = "terraform123abc"
+    container_name       = "tfstate"
+    key                  = "prod.terraform.tfstate"
+    use_oidc             = true 
+    client_id            = "ARM_CLIENT_ID"
+    subscription_id      = "ARM_SUBSCRIPTION_ID"
+    tenant_id            = "ARM_TENANT_ID"
+    use_azuread_auth     = true 
+  }
+}
+
   }
 }
 
