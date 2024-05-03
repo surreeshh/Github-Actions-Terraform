@@ -11,6 +11,10 @@ terraform {
     storage_account_name = "terraform2575"
     container_name       = "tfstatefile"
     key                  = "Demo.terraform.tfstate"
+    use_oidc             = true
+    subscription_id      = "ARM_SUBSCRIPTION_ID"
+    tenant_id            = "ARM_TENANT_ID"
+    client_id            = "ARM_CLIENT_ID"
   }
 }
 
