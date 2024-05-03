@@ -1,5 +1,5 @@
 
-name: 'Terraform to apply VM'
+name: 'Terraform to apply VMs'
 
 on:
   push:
