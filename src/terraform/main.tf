@@ -11,14 +11,9 @@ terraform {
     storage_account_name = "terraform2575"
     container_name       = "tfstatefile"
     key                  = "prod.terraform.tfstate"
-    use_oidc             = true 
-    client_id            = "ARM_CLIENT_ID"
-    subscription_id      = "ARM_SUBSCRIPTION_ID"
-    tenant_id            = "ARM_TENANT_ID"
-    use_azuread_auth     = true 
+  access_key = "4YtAihAQuMEPgCMiJMJo5p2ehmBe55lw03zTZYUxOB4TNRCBaM041RuSadugSxVPs1b6ItvkZEBM+AStEPNVaw=="
   }
 }
-
 
 
 # Configure the Microsoft Azure Provider
