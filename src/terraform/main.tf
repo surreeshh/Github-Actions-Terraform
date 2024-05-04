@@ -3,6 +3,7 @@ terraform {
     azurerm = {
       source  = "hashicorp/azurerm"
       version = "=2.46.0"
+    
     }
   }
 
@@ -11,19 +12,10 @@ terraform {
     storage_account_name = "terraform2575"
     container_name       = "tfstatefile"
     key                  = "prod.terraform.tfstate"
-  access_key = "4YtAihAQuMEPgCMiJMJo5p2ehmBe55lw03zTZYUxOB4TNRCBaM041RuSadugSxVPs1b6ItvkZEBM+AStEPNVaw=="
+    access_key           = "ARM_ACCESS_KEY_ID"
   }
 }
 
-
-# Configure the Microsoft Azure Provider
-provider "azurerm" {
-  features {}
-  # subscription_id = var.subscription_id
-  # client_id       = var.client_id
-  # client_secret   = var.client_secret
-  # tenant_id       = var.tenant_id
-}
  resource   "azurerm_resource_group"   "rg"   { 
    name   =   "my-first-terraform-rg" 
    location   =   "northeurope" 
@@ -38,8 +30,9 @@ provider "azurerm" {
 
  resource   "azurerm_subnet"   "frontendsubnet"    { 
    name   =   "frontendSubnet" 
-   resource_group_name   =    azurerm_resource_group.rg.name 
+   resource_group_name    =    azurerm_resource_group.rg.name 
    virtual_network_name   =   azurerm_virtual_network.myvnet.name 
+   address_prefixes       = ["10.0.1.0/24"]
  } 
 
  resource   "azurerm_public_ip"   "myvm1publicip"   { 
